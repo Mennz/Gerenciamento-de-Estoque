@@ -16,7 +16,9 @@ namespace GerenciamentoEstoqueAPI.Infrastructure.Repositories
 
         public async Task<Produto?> ObterPorIdAsync(Guid id)
         {
-            return await _context.Produtos.FindAsync(id);
+            return await _context.Produtos
+           .Include(p => p.HistoricosPreco)
+           .FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task AdicionarAsync(Produto produto)
@@ -27,7 +29,15 @@ namespace GerenciamentoEstoqueAPI.Infrastructure.Repositories
 
         public async Task AtualizarAsync(Produto produto)
         {
-            _context.Produtos.Update(produto);
+            foreach (var historico in produto.HistoricosPreco)
+            {
+                var existeNoRastreador = _context.HistoricosPreco.Any(h => h.Id == historico.Id);
+                if (!existeNoRastreador)
+                {
+                    await _context.HistoricosPreco.AddAsync(historico);
+                }
+            }
+
             await _context.SaveChangesAsync();
         }
     }

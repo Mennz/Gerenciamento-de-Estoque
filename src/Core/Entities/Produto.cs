@@ -1,4 +1,6 @@
+using System;
 using GerenciamentoEstoqueAPI.Core.Exceptions;
+using System.Collections.Generic;
 
 namespace GerenciamentoEstoqueAPI.Core.Entities
 {
@@ -10,7 +12,12 @@ namespace GerenciamentoEstoqueAPI.Core.Entities
         public int EstoqueMinimo { get; private set; }
         public decimal PrecoAtual { get; private set; }
 
-        private Produto() { }
+        public virtual ICollection<HistoricoPreco> HistoricosPreco { get; private set; } = new List<HistoricoPreco>();
+
+        private Produto()
+        {
+            Nome = null!;
+        }
 
         public Produto(string nome, int estoqueInicial, int estoqueMinimo, decimal precoInicial)
         {
@@ -45,6 +52,11 @@ namespace GerenciamentoEstoqueAPI.Core.Entities
         public void AtualizarPreco(decimal novoPreco)
         {
             if (novoPreco <= 0) throw new BusinessException("O novo preço deve ser maior que zero.");
+            if (novoPreco == PrecoAtual) throw new BusinessException("O novo preço não pode ser igual ao preço atual.");
+
+            // Guarda o histórico na coleção interna da própria entidade
+            HistoricosPreco.Add(new HistoricoPreco(Id, PrecoAtual, novoPreco));
+
             PrecoAtual = novoPreco;
         }
     }

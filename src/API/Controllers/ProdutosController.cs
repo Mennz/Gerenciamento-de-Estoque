@@ -28,6 +28,19 @@ namespace GerenciamentoEstoqueAPI.API.Controllers
             return Ok(new { Id = produto.Id, Mensagem = "Produto criado para testes!" });
         }
 
+        [HttpPut("{id}/atualizar-preco")]
+        public async Task<IActionResult> AtualizarPreco(Guid id, [FromBody] AtualizarPrecoInput input)
+        {
+            var produto = await _produtoRepositorio.ObterPorIdAsync(id);
+            if (produto == null) return NotFound(new { erro = "Produto não encontrado." });
+
+            produto.AtualizarPreco(input.NovoPreco);
+
+            await _produtoRepositorio.AtualizarAsync(produto);
+
+            return Ok(new { mensagem = $"Preço atualizado com sucesso para R$ {input.NovoPreco}!" });
+        }
+
         // Endpoint baixa de estoque
         [HttpPost("{id}/baixar-estoque")]
         public async Task<IActionResult> BaixarEstoque(Guid id, [FromBody] BaixarEstoqueInput input)
@@ -35,6 +48,11 @@ namespace GerenciamentoEstoqueAPI.API.Controllers
             // O Middleware global vai capturar se estourar alguma BusinessException
             await _estoqueServico.BaixarEstoqueAsync(id, input.Quantidade);
             return Ok(new { Mensagem = "Baixa de estoque realizada com sucesso!" });
+        }
+
+        public class AtualizarPrecoInput
+        {
+            public decimal NovoPreco { get; set; }
         }
     }
 }
