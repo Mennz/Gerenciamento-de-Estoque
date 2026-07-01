@@ -43,4 +43,4 @@ O projeto adota uma divisão clara de responsabilidades, distribuída nas seguin
 
 1. Clone o repositório para a sua máquina local:
    ```bash
-   git clone [[https://github.com/Mennz/Gerenciamento-de-Estoque.git]
+   git clone [https://github.com/Mennz/Gerenciamento-de-Estoque.git]
