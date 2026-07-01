@@ -28,6 +28,7 @@ C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoq
 C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoqueAPI\obj\Debug\net10.0\GerenciamentoEstoqueAPI.csproj.CoreCompileInputs.cache
 C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoqueAPI\obj\Debug\net10.0\GerenciamentoEstoqueAPI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoqueAPI\obj\Debug\net10.0\GerenciamentoEstoqueAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoqueAPI\obj\Debug\net10.0\GerenciamentoEstoqueAPI.sourcelink.json
 C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoqueAPI\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoqueAPI\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\davi.couto\Downloads\PROJETOS\Gerenciador de estoque\GerenciamentoEstoqueAPI\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json

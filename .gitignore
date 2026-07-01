@@ -1,0 +1,22 @@
+## Arquivos de build do .NET
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bincode/
+object/
+bin/
+obj/
+
+## Arquivos do Visual Studio e VS Code
+.vs/
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Arquivos de log e SO
+*.log
+.DS_Store
+Thumbs.db   
